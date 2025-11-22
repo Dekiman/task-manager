@@ -35,6 +35,7 @@ const NodeSchema = new mongoose.Schema(
     },
     dueDate: {
       type: Date,
+      default: "01/01/2999",
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
@@ -50,6 +51,7 @@ const NodeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       index: true,
+      default: null
     },
   },
   {

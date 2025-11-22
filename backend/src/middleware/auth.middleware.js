@@ -4,7 +4,6 @@ import User from '../models/User.js';
 
 export const protectRoute = async (req, res, next) => {
     try {
-        console.log("protectRoute: start");
 
         const token = req.cookies.jwt;
         if (!token) {
@@ -19,8 +18,6 @@ export const protectRoute = async (req, res, next) => {
             return res.status(401).json({message: 'Not authorized - User not found'});
         }
         req.user = user;
-        console.log(req.user);
-        console.log(req.cookies)
         next();
     }
     catch (error) {
